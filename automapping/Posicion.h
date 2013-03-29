@@ -3,9 +3,10 @@
 
 class Posicion {
 public:
-	int fila,columna;
-	Posicion(int fila, int columna);
-	virtual ~Posicion();
+	int 		fila;
+	int 		columna;
+				Posicion(int fila, int columna);
+	virtual 	~Posicion();
 };
 
 #endif /* POSICION_H_ */

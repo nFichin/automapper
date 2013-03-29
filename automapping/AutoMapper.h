@@ -3,8 +3,8 @@
 
 class AutoMapper {
 public:
-	AutoMapper();
-	virtual ~AutoMapper();
+				AutoMapper();
+	virtual 	~AutoMapper();
 };
 
 #endif /* AUTOMAPPER_H_ */

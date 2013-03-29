@@ -3,17 +3,17 @@
 
 #include "Posicion.h"
 
-enum t_ladoAdyacencia{
-	derecha,izquierda,arriba,abajo
+enum ladoAdyacencia_t{
+	DERECHA,IZQUIERDA,ARRIBA,ABAJO
 };
 
 class PosicionAdyacente: public Posicion {
 public:
-	t_ladoAdyacencia ladoAdyacencia;
-	PosicionAdyacente(int fila,int columna,t_ladoAdyacencia ladoAdyacencia);
-	virtual ~PosicionAdyacente();
+	ladoAdyacencia_t 			ladoAdyacencia;
+								PosicionAdyacente(int fila,int columna,ladoAdyacencia_t ladoAdyacencia);
+	virtual 					~PosicionAdyacente();
 
-	static t_ladoAdyacencia direccionOpuesta(t_ladoAdyacencia lado);
+	static ladoAdyacencia_t 	DireccionOpuesta(ladoAdyacencia_t lado);
 };
 
 #endif /* POSICIONADYACENTE_H_ */

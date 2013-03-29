@@ -6,14 +6,15 @@
 
 class MatrizCamino {
 public:
-	int cantFilas,cantColumnas;
-	ElementoCamino *matriz;
+	int 							cantFilas;
+	int 							cantColumnas;
+	ElementoCamino *				matriz;
 
-	MatrizCamino(int cantFilas,int cantColumnas);
-	virtual ~MatrizCamino();
-	void printMatriz();
-	void agregarElementoCaminoEnPosicion(Posicion posicion);
-	std::list<PosicionAdyacente> calcularPosicionesAdyacentesOcupadas(const Posicion posicion);
+									MatrizCamino(int cantFilas,int cantColumnas);
+	virtual 						~MatrizCamino();
+	void 							PrintMatriz();
+	void 							AgregarElementoCaminoEnPosicion(Posicion posicion);
+	std::list<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(const Posicion posicion);
 
 };
 

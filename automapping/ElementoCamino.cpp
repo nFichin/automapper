@@ -1,21 +1,21 @@
 #include "ElementoCamino.h"
 
 ElementoCamino::ElementoCamino() {
-	tipoElementoCamino = nulo;
+	tipoElementoCamino = NULO;
 }
 
 ElementoCamino::~ElementoCamino() {
 	// TODO Auto-generated destructor stub
 }
 
-t_elementoCamino ElementoCamino::getTipo(){
+elementoCamino_t ElementoCamino::GetTipo(){
 	return tipoElementoCamino;
 };
 
-void ElementoCamino::setTipo(t_elementoCamino tipo){
+void ElementoCamino::SetTipo(elementoCamino_t tipo){
 	tipoElementoCamino = tipo;
 }
 
-void ElementoCamino::adaptateParaConectarEnNuevaDireccion(t_ladoAdyacencia ladoNuevaAdyacencia){
+void ElementoCamino::AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia){
 
 }

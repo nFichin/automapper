@@ -3,20 +3,20 @@
 
 #include "PosicionAdyacente.h"
 
-typedef enum{
-	unitario,formaT,cruz,curva,nulo
-} t_elementoCamino;
+enum elementoCamino_t {
+	UNITARIO,FORMA_T,CRUZ,CURVA,NULO
+};
 
 class ElementoCamino{
 private:
-	t_elementoCamino tipoElementoCamino;
+	elementoCamino_t tipoElementoCamino;
 public:
-	ElementoCamino();
-	virtual ~ElementoCamino();
-	t_elementoCamino getTipo();
-	void setTipo(t_elementoCamino tipo);
+						ElementoCamino();
+	virtual 			~ElementoCamino();
+	elementoCamino_t 	GetTipo();
+	void 				SetTipo(elementoCamino_t tipo);
 
-	void adaptateParaConectarEnNuevaDireccion(t_ladoAdyacencia ladoNuevaAdyacencia);
+	void 				AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia);
 
 };
 

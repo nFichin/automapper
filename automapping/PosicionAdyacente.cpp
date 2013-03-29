@@ -1,6 +1,6 @@
 #include "PosicionAdyacente.h"
 
-PosicionAdyacente::PosicionAdyacente(int fil,int col,t_ladoAdyacencia ladoAdya):Posicion(fil,col) {
+PosicionAdyacente::PosicionAdyacente(int fil,int col,ladoAdyacencia_t ladoAdya):Posicion(fil,col) {
 	ladoAdyacencia = ladoAdya;
 }
 
@@ -8,22 +8,22 @@ PosicionAdyacente::~PosicionAdyacente() {
 	// TODO Auto-generated destructor stub
 }
 
-t_ladoAdyacencia PosicionAdyacente::direccionOpuesta(t_ladoAdyacencia lado){
+ladoAdyacencia_t PosicionAdyacente::DireccionOpuesta(ladoAdyacencia_t lado){
 	switch(lado){
-		case derecha:{
-			return izquierda;
+		case DERECHA:{
+			return IZQUIERDA;
 			break;
 		}
-		case izquierda:{
-			return derecha;
+		case IZQUIERDA:{
+			return DERECHA;
 			break;
 		}
-		case arriba:{
-			return abajo;
+		case ARRIBA:{
+			return ABAJO;
 			break;
 		}
-		case abajo:{
-			return arriba;
+		case ABAJO:{
+			return ARRIBA;
 			break;
 		}
 	}
