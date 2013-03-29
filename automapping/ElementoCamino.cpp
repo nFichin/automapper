@@ -8,11 +8,6 @@ ElementoCamino::~ElementoCamino() {
 	// TODO Auto-generated destructor stub
 }
 
-void ElementoCamino::agregarseAMatriz(ElementoCamino *matriz[10]){
-
-
-};
-
 t_elementoCamino ElementoCamino::getTipo(){
 	return tipoElementoCamino;
 };

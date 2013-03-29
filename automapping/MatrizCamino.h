@@ -12,7 +12,7 @@ public:
 	virtual ~MatrizCamino();
 	void printMatriz();
 	void agregarElementoCaminoEnPosicion(Posicion posicion);
-	std::list<PosicionAdyacente> calcularPosicionesAdyacentes(Posicion posicion);
+	std::list<PosicionAdyacente> calcularPosicionesAdyacentesOcupadas(const Posicion posicion);
 
 };
 

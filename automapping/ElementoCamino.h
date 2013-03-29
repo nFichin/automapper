@@ -14,7 +14,6 @@ private:
 public:
 	ElementoCamino();
 	virtual ~ElementoCamino();
-	void agregarseAMatriz(ElementoCamino *[10]);
 	t_elementoCamino getTipo();
 	void setTipo(t_elementoCamino tipo);
 

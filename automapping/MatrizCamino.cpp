@@ -42,44 +42,49 @@ void MatrizCamino::printMatriz(){
 }
 void MatrizCamino::agregarElementoCaminoEnPosicion(Posicion pos){
 
-	std::list<PosicionAdyacente> posAdyacentes = calcularPosicionesAdyacentes(pos);
+	std::list<PosicionAdyacente> posAdyacentes = calcularPosicionesAdyacentesOcupadas(pos);
 
-	if(posAdyacentes.size() == 0){
-		matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
+	switch(posAdyacentes.size()){
+		case 0:{
+				matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
+				break;
+		}
+		case 1:{
+				matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
+				break;
+		}
+		case 2:{
+				matriz[pos.fila * cantFilas + pos.columna].setTipo(curva);
+				break;
+		}
+		case 3:{
+				matriz[pos.fila * cantFilas + pos.columna].setTipo(formaT);
+				break;
+		}
+		case 4:{
+				matriz[pos.fila * cantFilas + pos.columna].setTipo(cruz);
+				break;
+		}
 	}
-	else if(posAdyacentes.size() == 1){
-		matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
-	}
-	else if(posAdyacentes.size() == 2){
-		matriz[pos.fila * cantFilas + pos.columna].setTipo(curva);
-	}
-	else if(posAdyacentes.size() == 3){
-		matriz[pos.fila * cantFilas + pos.columna].setTipo(formaT);
-	}
-	else if(posAdyacentes.size() == 4){
-		matriz[pos.fila * cantFilas + pos.columna].setTipo(cruz);
-	}
-
 	//for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++);
 
 }
 
-std::list<PosicionAdyacente> MatrizCamino::calcularPosicionesAdyacentes(Posicion posicion){
+std::list<PosicionAdyacente> MatrizCamino::calcularPosicionesAdyacentesOcupadas(const Posicion posicion){
 
 	std::list<PosicionAdyacente> posicionesAdyacentes;
 
-	if( (posicion.fila > 0) && (matriz[ (posicion.fila - 1) * cantFilas + posicion.columna].getTipo() != nulo) ){
+	if( (posicion.fila > 0) && (matriz[(posicion.fila - 1) * cantColumnas + posicion.columna].getTipo() != nulo) ){
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila - 1,posicion.columna,arriba));
 	}
-	if( (posicion.fila < (cantFilas - 1) ) && (matriz[ (posicion.fila +1) + cantFilas + posicion.columna].getTipo() != nulo) ){
+	if( (posicion.fila < (cantFilas-1) ) && (matriz[(posicion.fila +1) * cantColumnas + posicion.columna].getTipo() != nulo) ){
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila + 1,posicion.columna,abajo));
 	}
-	if( (posicion.columna > 0) && (matriz[posicion.fila * cantFilas + posicion.columna - 1].getTipo() != nulo) ){
+	if( (posicion.columna > 0) && (matriz[posicion.fila * cantColumnas + posicion.columna - 1].getTipo() != nulo) ){
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila ,posicion.columna - 1,izquierda));
 	}
-	if( (posicion.columna < (cantColumnas - 1) ) && (matriz[posicion.fila * cantFilas + posicion.columna + 1].getTipo() != nulo) ){
+	if( (posicion.columna < (cantColumnas-1) ) && (matriz[posicion.fila * cantColumnas + posicion.columna + 1].getTipo() != nulo) ){
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila ,posicion.columna + 1,derecha));
 	}
-
 	return posicionesAdyacentes;
 }
