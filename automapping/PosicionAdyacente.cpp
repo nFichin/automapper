@@ -8,7 +8,7 @@ PosicionAdyacente::~PosicionAdyacente() {
 	// TODO Auto-generated destructor stub
 }
 
-int PosicionAdyacente::direccionOpuesta(int lado){
+t_ladoAdyacencia PosicionAdyacente::direccionOpuesta(t_ladoAdyacencia lado){
 	switch(lado){
 		case derecha:{
 			return izquierda;

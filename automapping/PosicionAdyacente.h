@@ -3,7 +3,7 @@
 
 #include "Posicion.h"
 
-typedef enum{
+typedef enum t_ladoAdyacencia{
 	derecha,izquierda,arriba,abajo
 }t_ladoAdyacencia;
 
@@ -13,7 +13,7 @@ public:
 	PosicionAdyacente(int fila,int columna,t_ladoAdyacencia ladoAdyacencia);
 	virtual ~PosicionAdyacente();
 
-	int direccionOpuesta(int lado);
+	t_ladoAdyacencia direccionOpuesta(t_ladoAdyacencia lado);
 };
 
 #endif /* POSICIONADYACENTE_H_ */

@@ -16,7 +16,7 @@ public:
 	t_elementoCamino getTipo();
 	void setTipo(t_elementoCamino tipo);
 
-	void adaptateParaConectarEnNuevaDireccion(int ladoNuevaAdyacencia);
+	void adaptateParaConectarEnNuevaDireccion(t_ladoAdyacencia ladoNuevaAdyacencia);
 
 };
 

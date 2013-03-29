@@ -16,6 +16,6 @@ void ElementoCamino::setTipo(t_elementoCamino tipo){
 	tipoElementoCamino = tipo;
 }
 
-void ElementoCamino::adaptateParaConectarEnNuevaDireccion(int ladoNuevaAdyacencia){
+void ElementoCamino::adaptateParaConectarEnNuevaDireccion(t_ladoAdyacencia ladoNuevaAdyacencia){
 
 }
