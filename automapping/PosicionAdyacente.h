@@ -3,9 +3,9 @@
 
 #include "Posicion.h"
 
-typedef enum t_ladoAdyacencia{
+enum t_ladoAdyacencia{
 	derecha,izquierda,arriba,abajo
-}t_ladoAdyacencia;
+};
 
 class PosicionAdyacente: public Posicion {
 public:
@@ -13,7 +13,7 @@ public:
 	PosicionAdyacente(int fila,int columna,t_ladoAdyacencia ladoAdyacencia);
 	virtual ~PosicionAdyacente();
 
-	t_ladoAdyacencia direccionOpuesta(t_ladoAdyacencia lado);
+	static t_ladoAdyacencia direccionOpuesta(t_ladoAdyacencia lado);
 };
 
 #endif /* POSICIONADYACENTE_H_ */
