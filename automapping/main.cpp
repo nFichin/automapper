@@ -9,7 +9,7 @@ int main(){
 	matriz->agregarElementoCaminoEnPosicion(Posicion(1,1));
 	matriz->agregarElementoCaminoEnPosicion(Posicion(0,2));
 	matriz->agregarElementoCaminoEnPosicion(Posicion(0,1));
-	matriz->agregarElementoCaminoEnPosicion(Posicion(10,10));
+	matriz->agregarElementoCaminoEnPosicion(Posicion(0,0));
 	matriz->printMatriz();
 
 }

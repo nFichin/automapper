@@ -12,6 +12,8 @@ public:
 	t_ladoAdyacencia ladoAdyacencia;
 	PosicionAdyacente(int fila,int columna,t_ladoAdyacencia ladoAdyacencia);
 	virtual ~PosicionAdyacente();
+
+	int direccionOpuesta(int lado);
 };
 
 #endif /* POSICIONADYACENTE_H_ */

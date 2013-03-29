@@ -2,6 +2,7 @@
 #define MATRIZCAMINO_H_
 
 #include "ElementoCamino.h"
+#include <list>
 
 class MatrizCamino {
 public:

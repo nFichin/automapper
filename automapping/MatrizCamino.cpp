@@ -1,5 +1,6 @@
 #include "MatrizCamino.h"
 #include <iostream>
+
 MatrizCamino::MatrizCamino(int cantFil,int cantCol) {
 	cantFilas = cantFil;
 	cantColumnas = cantCol;
@@ -46,28 +47,30 @@ void MatrizCamino::agregarElementoCaminoEnPosicion(Posicion pos){
 
 	switch(posAdyacentes.size()){
 		case 0:{
-				matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
+				matriz[pos.fila * cantColumnas + pos.columna].setTipo(unitario);
 				break;
 		}
 		case 1:{
-				matriz[pos.fila * cantFilas + pos.columna].setTipo(unitario);
+				matriz[pos.fila * cantColumnas + pos.columna].setTipo(unitario);
 				break;
 		}
 		case 2:{
-				matriz[pos.fila * cantFilas + pos.columna].setTipo(curva);
+				matriz[pos.fila * cantColumnas + pos.columna].setTipo(curva);
 				break;
 		}
 		case 3:{
-				matriz[pos.fila * cantFilas + pos.columna].setTipo(formaT);
+				matriz[pos.fila * cantColumnas + pos.columna].setTipo(formaT);
 				break;
 		}
 		case 4:{
-				matriz[pos.fila * cantFilas + pos.columna].setTipo(cruz);
+				matriz[pos.fila * cantColumnas + pos.columna].setTipo(cruz);
 				break;
 		}
 	}
-	//for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++);
+	for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
 
+		matriz[iterador->fila * cantColumnas + iterador->columna].adaptateParaConectarEnNuevaDireccion(iterador->direccionOpuesta(iterador->ladoAdyacencia));
+	}
 }
 
 std::list<PosicionAdyacente> MatrizCamino::calcularPosicionesAdyacentesOcupadas(const Posicion posicion){

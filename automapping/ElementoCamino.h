@@ -1,7 +1,6 @@
 #ifndef ELEMENTOCAMINO_H_
 #define ELEMENTOCAMINO_H_
 
-#include <list>
 #include "PosicionAdyacente.h"
 
 typedef enum{
@@ -16,6 +15,8 @@ public:
 	virtual ~ElementoCamino();
 	t_elementoCamino getTipo();
 	void setTipo(t_elementoCamino tipo);
+
+	void adaptateParaConectarEnNuevaDireccion(int ladoNuevaAdyacencia);
 
 };
 
