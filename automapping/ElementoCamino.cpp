@@ -5,7 +5,6 @@ ElementoCamino::ElementoCamino() {
 }
 
 ElementoCamino::~ElementoCamino() {
-	// TODO Auto-generated destructor stub
 }
 
 elementoCamino_t ElementoCamino::GetTipo(){
@@ -16,6 +15,10 @@ void ElementoCamino::SetTipo(elementoCamino_t tipo){
 	tipoElementoCamino = tipo;
 }
 
+void ElementoCamino::SetPos(int fil,int col){
+	pos.fila = fil;
+	pos.columna = col;
+}
 void ElementoCamino::AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia){
 
 }

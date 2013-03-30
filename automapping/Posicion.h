@@ -6,6 +6,7 @@ public:
 	int 		fila;
 	int 		columna;
 				Posicion(int fila, int columna);
+				Posicion();
 	virtual 	~Posicion();
 };
 

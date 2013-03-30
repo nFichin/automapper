@@ -1,12 +1,10 @@
 #include "AutoMapper.h"
 
 AutoMapper::AutoMapper() {
-	// TODO Auto-generated constructor stub
 
 }
 
 AutoMapper::~AutoMapper() {
-	// TODO Auto-generated destructor stub
 }
 
 void AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino *matriz,Posicion pos){
@@ -37,12 +35,12 @@ void AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino *matriz,Posicion p
 		}
 	}
 
+	matriz->matriz[pos.fila * matriz->cantColumnas + pos.columna].SetTipo(nuevoTipo);
+
 	for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
 
-		matriz->matriz[iterador->fila * matriz->cantColumnas + iterador->columna].AdaptateParaConectarEnNuevaDireccion(PosicionAdyacente::DireccionOpuesta(iterador->ladoAdyacencia));
+		AdaptarElementoANuevoCamino(matriz , matriz->matriz[iterador->fila * matriz->cantColumnas + iterador->columna]);
 	}
-
-	matriz->matriz[pos.fila * matriz->cantColumnas + pos.columna].SetTipo(nuevoTipo);
 
 }
 
@@ -63,4 +61,12 @@ std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(Ma
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila ,posicion.columna + 1,DERECHA));
 	}
 	return posicionesAdyacentes;
+}
+
+
+void AutoMapper::AdaptarElementoANuevoCamino(MatrizCamino *matriz,ElementoCamino elementoCamino){
+	std::list<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,elementoCamino.pos);
+
+
+
 }
