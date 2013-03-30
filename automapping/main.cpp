@@ -8,10 +8,28 @@ int main(){
 	MatrizCamino matriz(10,10);
 	AutoMapper automapper;
 
-	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(1,1));
-	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,2));
-	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,1));
-	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,0));
-	matriz.PrintMatriz();
+	std::string input;
+	int fila, columna;
+	while(1){
+
+		matriz.PrintMatriz();
+
+		std::cin >> input;
+		if(input == "print"){
+			matriz.PrintMatriz();
+		}else if(input == "new"){
+			std::cin >> fila;
+			std::cin >> columna;
+
+			automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(fila,columna));
+		}else if(input == "delete"){
+			std::cin >> fila;
+			std::cin >> columna;
+
+			automapper.QuitarElementoCaminoEnPosicion(matriz,Posicion(fila,columna));
+		}else if(input == "quit" || input == "exit"){
+			break;
+		}
+	}
 
 }

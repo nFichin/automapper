@@ -6,8 +6,17 @@ AutoMapper::AutoMapper() {
 
 AutoMapper::~AutoMapper() {
 }
+void	AutoMapper::QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
+	matriz.matriz[pos.fila * matriz.cantColumnas + pos.columna].SetTipo(NULO);
 
-void AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
+	std::list<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
+	for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
+		std::list<PosicionAdyacente> nuevosPosAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,*iterador);
+		AdaptarElementoANuevoCamino(matriz.matriz[iterador->fila * matriz.cantColumnas + iterador->columna],nuevosPosAdyacentes);
+	}
+}
+
+void	AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
 
 	std::list<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
 
@@ -51,7 +60,11 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 			break;
 		}
 		case 2:{
-			nuevoTipo = CURVA;
+			if(ElementosAdyacentesEstanEnIgualDireccion(posAdyacentes)){
+				nuevoTipo = UNITARIO;
+			}else{
+				nuevoTipo = CURVA;
+			}
 			break;
 		}
 		case 3:{
@@ -66,4 +79,16 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	elementoCamino.SetTipo(nuevoTipo);
 
 	//TODO calcular la rotación del tile del camino.
+}
+
+bool	AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes){
+
+	ladoAdyacencia_t lados[2];
+	int i = 0;
+	for( std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
+		lados[i++] = iterador->ladoAdyacencia;
+	}
+
+	int asd = lados[0] | lados[1];
+	return ( asd == (DERECHA | IZQUIERDA) ) || (asd == (ARRIBA | ABAJO) ) ;
 }
