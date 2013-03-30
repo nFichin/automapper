@@ -5,13 +5,13 @@
 
 int main(){
 
-	MatrizCamino *matriz = new MatrizCamino(10,10);
-	AutoMapper *automapper = new AutoMapper();
+	MatrizCamino matriz(10,10);// = new MatrizCamino(10,10);
+	AutoMapper automapper;
 
-	automapper->AgregarElementoCaminoEnPosicion(matriz,Posicion(1,1));
-	automapper->AgregarElementoCaminoEnPosicion(matriz,Posicion(0,2));
-	automapper->AgregarElementoCaminoEnPosicion(matriz,Posicion(0,1));
-	automapper->AgregarElementoCaminoEnPosicion(matriz,Posicion(0,0));
-	matriz->PrintMatriz();
+	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(1,1));
+	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,2));
+	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,1));
+	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(0,0));
+	matriz.PrintMatriz();
 
 }

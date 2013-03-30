@@ -8,9 +8,9 @@ public:
 									AutoMapper();
 	virtual 						~AutoMapper();
 
-	void 							AgregarElementoCaminoEnPosicion(MatrizCamino *matriz,Posicion posicion);
-	std::list<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(MatrizCamino *matriz,const Posicion posicion);
-	void							AdaptarElementoANuevoCamino(MatrizCamino *matriz,ElementoCamino elementoCamino);
+	void 							AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion posicion);
+	std::list<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion posicion);
+	void							AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente> posAdyacentes);
 };
 
 #endif /* AUTOMAPPER_H_ */

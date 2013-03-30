@@ -9,7 +9,6 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol) {
 	for(int fil = 0; fil < cantFil ; ++fil){
 		for(int col = 0; col < cantCol ; ++col){
 			matriz[fil * cantCol + col].SetPos(fil,col);
-
 		}
 	}
 }
