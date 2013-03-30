@@ -19,7 +19,7 @@ void AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion p
 	}
 }
 
-std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion posicion){
+std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion){
 
 	std::list<PosicionAdyacente> posicionesAdyacentes;
 
@@ -38,7 +38,7 @@ std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(Ma
 	return posicionesAdyacentes;
 }
 
-void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente> posAdyacentes){
+void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente>& posAdyacentes){
 
 	elementoCamino_t nuevoTipo;
 	switch(posAdyacentes.size()){

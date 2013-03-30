@@ -5,7 +5,7 @@
 
 int main(){
 
-	MatrizCamino matriz(10,10);// = new MatrizCamino(10,10);
+	MatrizCamino matriz(10,10);
 	AutoMapper automapper;
 
 	automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(1,1));
