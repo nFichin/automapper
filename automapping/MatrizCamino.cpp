@@ -15,33 +15,10 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol) {
 MatrizCamino::~MatrizCamino() {
 	delete matriz;
 }
-void MatrizCamino::PrintMatriz(){
+void MatrizCamino::Draw(SDL_Renderer* renderer){
 	for(int i = 0; i < cantFilas ; i++){
 		for(int j = 0; j < cantColumnas ; j++){
-			switch(matriz[i*cantColumnas+j].GetTipo()){
-				case UNITARIO:{
-					std::cout << "-";
-					break;
-				}
-				case FORMA_T:{
-					std::cout << "T";
-					break;
-				}
-				case CRUZ:{
-					std::cout << "+";
-					break;
-				}
-				case CURVA:{
-					std::cout << "\\";
-					break;
-				}
-				case NULO:{
-					std::cout << "0";
-					break;
-				}
-			}
-			std::cout << " ";
+			matriz[i*cantColumnas+j].Draw(renderer);
 		}
-		std::cout << "\n";
 	}
 }

@@ -22,3 +22,7 @@ void ElementoCamino::SetPos(int fil,int col){
 void ElementoCamino::AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia){
 
 }
+
+void ElementoCamino::Draw(SDL_Renderer *renderer){
+
+}
