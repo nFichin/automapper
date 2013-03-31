@@ -1,7 +1,6 @@
 #include "AutoMapper.h"
 
 AutoMapper::AutoMapper() {
-
 }
 
 AutoMapper::~AutoMapper() {
@@ -82,13 +81,10 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 }
 
 bool	AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes){
-
-	ladoAdyacencia_t lados[2];
 	int i = 0;
 	for( std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
-		lados[i++] = iterador->ladoAdyacencia;
+		i = i  | iterador->ladoAdyacencia;
 	}
 
-	int asd = lados[0] | lados[1];
-	return ( asd == (DERECHA | IZQUIERDA) ) || (asd == (ARRIBA | ABAJO) ) ;
+	return ( i == (DERECHA | IZQUIERDA) ) || (i == (ARRIBA | ABAJO) ) ;
 }
