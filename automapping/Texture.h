@@ -4,9 +4,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-class Textura {
+class CTexture {
     public:
-        Textura();
+        CTexture();
 
     public:
         static SDL_Texture* OnLoad(SDL_Renderer *renderer, const char* File);

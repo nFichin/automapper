@@ -57,6 +57,7 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 			break;
 		}
 		case 1:{
+			//nuevoTipo = elegirTileSegunDireccionesDeAdyacencia()
 			break;
 		}
 		case 2:{
@@ -78,7 +79,7 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	//TODO calcular la rotación del tile del camino.
 }
 
-bool	AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes){
+bool AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes){
 	int i = 0;
 	for( std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
 		i = i  | iterador->ladoAdyacencia;

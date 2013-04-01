@@ -5,7 +5,7 @@
 #include <SDL2/SDL.h>
 
 enum elementoCamino_t {
-	UNITARIO_NS,UNITARIO_WE,T_S,T_N,T_E,T_W,CRUZ,CURVA_NW,CURVA_NE,CURVA_SE,CURVA_SW,NULO
+	UNITARIO_WE,UNITARIO_NS,T_S,CRUZ,CURVA_NW,T_W,CURVA_NE,CURVA_SW,T_E,CURVA_SE,T_N,NULO
 };
 
 class ElementoCamino{
@@ -21,8 +21,6 @@ public:
 	void				SetPos(int fil,int col);
 
 	void 				AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia);
-	void 				Draw(SDL_Renderer *renderer,SDL_Texture *spriteSheet);
-
 };
 
 #endif /* ELEMENTOCAMINO_H_ */

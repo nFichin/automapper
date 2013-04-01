@@ -25,7 +25,7 @@ int main(){
 	}
 
 	MatrizCamino matriz(10,10,renderer);
-	matriz.matriz[3].SetTipo(CURVA_SE);
+	matriz.matriz[3].SetTipo(CRUZ);
 	AutoMapper automapper;
 
 	SDL_Event e;
@@ -50,13 +50,13 @@ int main(){
 			if(e.type == SDL_MOUSEMOTION){
 			}
 			if(e.type == SDL_MOUSEBUTTONDOWN){
-				automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(e.button.x/TILE_SIZE,e.button.y/TILE_SIZE));
+				automapper.AgregarElementoCaminoEnPosicion(matriz,Posicion(e.button.y/TILE_SIZE,e.button.x/TILE_SIZE));
 			}
 		}
 		//Rendering
 		SDL_RenderClear(renderer);
 		//Draw the image
-		matriz.Draw(renderer);
+		matriz.OnDraw(renderer);
 		//Update the screen
 		SDL_RenderPresent(renderer);
 	}

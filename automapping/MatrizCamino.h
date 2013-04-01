@@ -14,7 +14,7 @@ public:
 
 									MatrizCamino(int cantFilas,int cantColumnas,SDL_Renderer *renderer);
 	virtual 						~MatrizCamino();
-	void 							Draw(SDL_Renderer* renderer);
+	void 							OnDraw(SDL_Renderer* renderer);
 };
 
 #endif /* MATRIZCAMINO_H_ */

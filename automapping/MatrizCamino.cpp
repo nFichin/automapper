@@ -5,7 +5,7 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 	cantFilas = cantFil;
 	cantColumnas = cantCol;
 	matriz = new ElementoCamino[cantFilas * cantColumnas];
-	tileset = Textura::OnLoad(renderer,"./tileset/tileset_topdown.png");
+	tileset = CTexture::OnLoad(renderer,"./tileset/tileset_topdown.png");
 
 
 	for(int fil = 0; fil < cantFil ; ++fil){
@@ -17,10 +17,21 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 MatrizCamino::~MatrizCamino() {
 	delete matriz;
 }
-void MatrizCamino::Draw(SDL_Renderer* renderer){
+void MatrizCamino::OnDraw(SDL_Renderer* renderer){
+	int destX,destY,srcX,srcY;
 	for(int i = 0; i < cantFilas ; i++){
 		for(int j = 0; j < cantColumnas ; j++){
-			matriz[i*cantColumnas+j].Draw(renderer,tileset);
+			if(matriz[i*cantColumnas+j].GetTipo() == NULO){
+				continue;
+			}
+
+			destY = i * 40;
+			destX = j * 40;
+
+			srcX = ( matriz[i*cantColumnas+j].GetTipo() % 3 ) * 40;
+			srcY = ( matriz[i*cantColumnas+j].GetTipo() / 3 ) * 40;
+
+			CTexture::OnDraw(renderer,tileset,destX,destY,srcX,srcY,40,40);
 		}
 	}
 }
