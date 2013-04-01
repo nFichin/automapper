@@ -48,26 +48,24 @@ std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(Ma
 
 void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente>& posAdyacentes){
 
+	//Aca se aplican las reglas del automapper
+	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
 	elementoCamino_t nuevoTipo;
 	switch(posAdyacentes.size()){
 		case 0:{
-			nuevoTipo = UNITARIO;
+			nuevoTipo = UNITARIO_WE;
 			break;
 		}
 		case 1:{
-			nuevoTipo = UNITARIO;
 			break;
 		}
 		case 2:{
 			if(ElementosAdyacentesEstanEnIgualDireccion(posAdyacentes)){
-				nuevoTipo = UNITARIO;
 			}else{
-				nuevoTipo = CURVA;
 			}
 			break;
 		}
 		case 3:{
-			nuevoTipo = FORMA_T;
 			break;
 		}
 		case 4:{

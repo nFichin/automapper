@@ -3,6 +3,7 @@
 
 #include "ElementoCamino.h"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 class MatrizCamino {
 public:
@@ -11,7 +12,7 @@ public:
 	ElementoCamino *				matriz;
 	SDL_Texture						*tileset;
 
-									MatrizCamino(int cantFilas,int cantColumnas);
+									MatrizCamino(int cantFilas,int cantColumnas,SDL_Renderer *renderer);
 	virtual 						~MatrizCamino();
 	void 							Draw(SDL_Renderer* renderer);
 };

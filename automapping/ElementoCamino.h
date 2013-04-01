@@ -21,7 +21,7 @@ public:
 	void				SetPos(int fil,int col);
 
 	void 				AdaptateParaConectarEnNuevaDireccion(ladoAdyacencia_t ladoNuevaAdyacencia);
-	void 				Draw(SDL_Renderer *renderer);
+	void 				Draw(SDL_Renderer *renderer,SDL_Texture *spriteSheet);
 
 };
 
