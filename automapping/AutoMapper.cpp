@@ -16,7 +16,6 @@ void	AutoMapper::QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion po
 }
 
 void	AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
-
 	std::vector<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
 
 	AdaptarElementoANuevoCamino(matriz.matriz[pos.fila * matriz.cantColumnas + pos.columna],posAdyacentes);
@@ -47,30 +46,24 @@ std::vector<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(
 }
 
 void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::vector<PosicionAdyacente>& posAdyacentes){
-
 	//Aca se aplican las reglas del automapper
 	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
+
+	int lados = PonerValorLadosEnUnaVariable(posAdyacentes);
+
+	int cantAdyacentes = posAdyacentes.size();
 	elementoCamino_t nuevoTipo;
-	switch(posAdyacentes.size()){
+	switch(cantAdyacentes){
 		case 0:{
 			nuevoTipo = UNITARIO_WE;
 			break;
 		}
-		case 1:{
-			//nuevoTipo = elegirTileSegunDireccionesDeAdyacencia()
-			break;
-		}
-		case 2:{
-			if(ElementosAdyacentesEstanEnIgualDireccion(posAdyacentes)){
-			}else{
-			}
-			break;
-		}
-		case 3:{
-			break;
-		}
 		case 4:{
 			nuevoTipo = CRUZ;
+			break;
+		}
+		default:{
+			nuevoTipo = ElegirTipoSegunAdyacencias(lados,cantAdyacentes);
 			break;
 		}
 	}
@@ -79,11 +72,51 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	//TODO calcular la rotación del tile del camino.
 }
 
-bool AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::vector<PosicionAdyacente>& posAdyacentes){
+int AutoMapper::PonerValorLadosEnUnaVariable(std::vector<PosicionAdyacente>& posAdyacentes){
 	int i = 0;
 	for( std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
-		i = i  | iterador->ladoAdyacencia;
+		i |= iterador->ladoAdyacencia;
 	}
+	return i;
+}
 
-	return ( i == (DERECHA | IZQUIERDA) ) || (i == (ARRIBA | ABAJO) ) ;
+elementoCamino_t AutoMapper::ElegirTipoSegunAdyacencias(int ladosAdyacentes,int cantLados){
+	switch(cantLados){
+		case 1:{
+			if( (ladosAdyacentes == IZQUIERDA) || (ladosAdyacentes == DERECHA) ){
+				return UNITARIO_WE;
+			}else{
+				return UNITARIO_NS;
+			}
+			break;
+		}
+		case 2:{
+			if( ladosAdyacentes == (DERECHA | IZQUIERDA) ){
+				return UNITARIO_WE;
+			}else if( ladosAdyacentes ==  (ARRIBA | ABAJO) ){
+				return UNITARIO_NS;
+			}else if( ladosAdyacentes == (ARRIBA | DERECHA) ){
+				return CURVA_NE;
+			}else if( ladosAdyacentes == (ARRIBA | IZQUIERDA) ){
+				return CURVA_NW;
+			}else if( ladosAdyacentes == (ABAJO | DERECHA) ){
+				return CURVA_SE;
+			}else if( ladosAdyacentes == (ABAJO | IZQUIERDA) ){
+				return CURVA_SW;
+			}
+			break;
+		}
+		case 3:{
+			if( (ladosAdyacentes & ARRIBA) == ARRIBA){
+				return T_N;
+			}else if( (ladosAdyacentes & ABAJO) == ABAJO ){
+				return T_S;
+			}else if( (ladosAdyacentes & DERECHA) == DERECHA ){
+				return T_E;
+			}else if( (ladosAdyacentes & IZQUIERDA) ==  IZQUIERDA ){
+				return T_W;
+			}
+			break;
+		}
+	}
 }

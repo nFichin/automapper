@@ -16,7 +16,7 @@ int main(){
 		        return false;
 	}
 	SDL_Window *window;
-	if( (window = SDL_CreateWindow("SDL FRAMEWORK", 100, 100, WWIDTH, WHEIGHT, SDL_WINDOW_SHOWN)) == NULL){
+	if( (window = SDL_CreateWindow("AUTOMAPPING TEST", 100, 100, WWIDTH, WHEIGHT, SDL_WINDOW_SHOWN)) == NULL){
 		return false;
 	}
 	SDL_Renderer *renderer;
@@ -25,7 +25,6 @@ int main(){
 	}
 
 	MatrizCamino matriz(10,10,renderer);
-	matriz.matriz[3].SetTipo(CRUZ);
 	AutoMapper automapper;
 
 	SDL_Event e;
