@@ -8,28 +8,28 @@ AutoMapper::~AutoMapper() {
 void	AutoMapper::QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
 	matriz.matriz[pos.fila * matriz.cantColumnas + pos.columna].SetTipo(NULO);
 
-	std::list<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
-	for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
-		std::list<PosicionAdyacente> nuevosPosAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,*iterador);
+	std::vector<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
+	for(std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
+		std::vector<PosicionAdyacente> nuevosPosAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,*iterador);
 		AdaptarElementoANuevoCamino(matriz.matriz[iterador->fila * matriz.cantColumnas + iterador->columna],nuevosPosAdyacentes);
 	}
 }
 
 void	AutoMapper::AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
 
-	std::list<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
+	std::vector<PosicionAdyacente> posAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,pos);
 
 	AdaptarElementoANuevoCamino(matriz.matriz[pos.fila * matriz.cantColumnas + pos.columna],posAdyacentes);
 
-	for(std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
-		std::list<PosicionAdyacente> nuevosPosAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,*iterador);
+	for(std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin();iterador != posAdyacentes.end();iterador++){
+		std::vector<PosicionAdyacente> nuevosPosAdyacentes = CalcularPosicionesAdyacentesOcupadas(matriz,*iterador);
 		AdaptarElementoANuevoCamino(matriz.matriz[iterador->fila * matriz.cantColumnas + iterador->columna],nuevosPosAdyacentes);
 	}
 }
 
-std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion){
+std::vector<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion){
 
-	std::list<PosicionAdyacente> posicionesAdyacentes;
+	std::vector<PosicionAdyacente> posicionesAdyacentes;
 
 	if( ( posicion.fila > 0 ) && ( matriz.matriz[(posicion.fila - 1) * matriz.cantColumnas + posicion.columna].GetTipo() != NULO ) ){
 		posicionesAdyacentes.push_back(PosicionAdyacente(posicion.fila - 1,posicion.columna,ARRIBA));
@@ -46,7 +46,7 @@ std::list<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(Ma
 	return posicionesAdyacentes;
 }
 
-void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente>& posAdyacentes){
+void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::vector<PosicionAdyacente>& posAdyacentes){
 
 	//Aca se aplican las reglas del automapper
 	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
@@ -79,9 +79,9 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	//TODO calcular la rotación del tile del camino.
 }
 
-bool AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes){
+bool AutoMapper::ElementosAdyacentesEstanEnIgualDireccion(std::vector<PosicionAdyacente>& posAdyacentes){
 	int i = 0;
-	for( std::list<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
+	for( std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
 		i = i  | iterador->ladoAdyacencia;
 	}
 

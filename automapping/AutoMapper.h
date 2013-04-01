@@ -1,7 +1,7 @@
 #ifndef AUTOMAPPER_H_
 #define AUTOMAPPER_H_
 
-#include <list>
+#include <vector>
 #include "MatrizCamino.h"
 class AutoMapper {
 public:
@@ -10,9 +10,9 @@ public:
 
 	void 							AgregarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion posicion);
 	void							QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion posicion);
-	std::list<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion);
-	void							AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::list<PosicionAdyacente>& posAdyacentes);
-	bool							ElementosAdyacentesEstanEnIgualDireccion(std::list<PosicionAdyacente>& posAdyacentes);
+	std::vector<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion);
+	void							AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::vector<PosicionAdyacente>& posAdyacentes);
+	bool							ElementosAdyacentesEstanEnIgualDireccion(std::vector<PosicionAdyacente>& posAdyacentes);
 
 };
 
