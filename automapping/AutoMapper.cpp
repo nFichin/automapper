@@ -107,13 +107,13 @@ elementoCamino_t AutoMapper::ElegirTipoSegunAdyacencias(int ladosAdyacentes,int 
 			break;
 		}
 		case 3:{
-			if( (ladosAdyacentes & ARRIBA) == ARRIBA){
+			if( (ladosAdyacentes ^ (DERECHA | IZQUIERDA) ) == ARRIBA){
 				return T_N;
-			}else if( (ladosAdyacentes & ABAJO) == ABAJO ){
+			}else if( (ladosAdyacentes ^ (DERECHA | IZQUIERDA) ) == ABAJO ){
 				return T_S;
-			}else if( (ladosAdyacentes & DERECHA) == DERECHA ){
+			}else if( (ladosAdyacentes ^ (ARRIBA | ABAJO) ) == DERECHA ){
 				return T_E;
-			}else if( (ladosAdyacentes & IZQUIERDA) ==  IZQUIERDA ){
+			}else if( (ladosAdyacentes ^ (ARRIBA | ABAJO) ) ==  IZQUIERDA ){
 				return T_W;
 			}
 			break;
