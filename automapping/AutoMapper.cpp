@@ -68,8 +68,6 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 		}
 	}
 	elementoCamino.SetTipo(nuevoTipo);
-
-	//TODO calcular la rotación del tile del camino.
 }
 
 int AutoMapper::PonerValorLadosEnUnaVariable(std::vector<PosicionAdyacente>& posAdyacentes){
