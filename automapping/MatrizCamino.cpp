@@ -15,7 +15,7 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 	}
 }
 MatrizCamino::~MatrizCamino() {
-	delete matriz;
+	//delete matriz;
 }
 void MatrizCamino::OnDraw(SDL_Renderer* renderer){
 	int destX,destY,srcX,srcY;
