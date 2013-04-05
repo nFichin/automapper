@@ -15,11 +15,11 @@ int main(int argc, char *argv[]){
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		return false;
 	}
-	SDL_Window *window;
+	SDL_Window *window = NULL;
 	if( (window = SDL_CreateWindow("AUTOMAPPING TEST", 100, 100, WWIDTH, WHEIGHT, SDL_WINDOW_SHOWN)) == NULL){
 		return false;
 	}
-	SDL_Renderer *renderer;
+	SDL_Renderer *renderer = NULL;
 	if( (renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED)) == NULL){
 		return false;
 	}

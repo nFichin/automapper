@@ -7,7 +7,6 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 	matriz = new ElementoCamino[cantFilas * cantColumnas];
 	tileset = CTexture::OnLoad(renderer,"../tileset/tileset_topdown.png");
 
-
 	for(int fil = 0; fil < cantFil ; ++fil){
 		for(int col = 0; col < cantCol ; ++col){
 			matriz[fil * cantCol + col].SetPos(fil,col);
