@@ -2,7 +2,7 @@
 #include "MatrizCamino.h"
 #include "AutoMapper.h"
 #include <iostream>
-#include <SDL2/SDL.h>
+#include "SDL.h"
 #include "Texture.h"
 
 #define TILE_SIZE    40
@@ -10,7 +10,7 @@
 #define WWIDTH        400
 #define WHEIGHT       400
 
-int main(){
+int main(int argc, char *argv[]){
 
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		return false;

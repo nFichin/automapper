@@ -5,7 +5,7 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 	cantFilas = cantFil;
 	cantColumnas = cantCol;
 	matriz = new ElementoCamino[cantFilas * cantColumnas];
-	tileset = CTexture::OnLoad(renderer,"./tileset/tileset_topdown.png");
+	tileset = CTexture::OnLoad(renderer,"../tileset/tileset_topdown.png");
 
 
 	for(int fil = 0; fil < cantFil ; ++fil){
@@ -15,7 +15,7 @@ MatrizCamino::MatrizCamino(int cantFil,int cantCol,SDL_Renderer *renderer) {
 	}
 }
 MatrizCamino::~MatrizCamino() {
-	//delete matriz;
+	SDL_DestroyTexture(tileset);
 }
 void MatrizCamino::OnDraw(SDL_Renderer* renderer){
 	int destX,destY,srcX,srcY;

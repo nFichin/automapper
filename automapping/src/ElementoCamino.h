@@ -2,7 +2,7 @@
 #define ELEMENTOCAMINO_H_
 
 #include "PosicionAdyacente.h"
-#include <SDL2/SDL.h>
+#include "SDL.h"
 
 enum elementoCamino_t {
 	UNITARIO_WE,UNITARIO_NS,T_S,CRUZ,CURVA_NW,T_W,CURVA_NE,CURVA_SW,T_E,CURVA_SE,T_N,NULO
