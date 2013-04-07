@@ -41,34 +41,6 @@ int main(int argc, char *argv[]){
 						quit = true;
 						break;
 					}
-					case SDLK_1:{
-						nuevoTipo = UNITARIO_NS;
-						break;
-					}
-					case SDLK_2:{
-						nuevoTipo = UNITARIO_WE;
-						break;
-					}
-					case SDLK_3:{
-						nuevoTipo = CRUZ;
-						break;
-					}
-					case SDLK_4:{
-						nuevoTipo = T_N;
-						break;
-					}
-					case SDLK_5:{
-						nuevoTipo = T_S;
-						break;
-					}
-					case SDLK_6:{
-						nuevoTipo = T_W;
-						break;
-					}
-					case SDLK_7:{
-						nuevoTipo= T_E;
-						break;
-					}
 					default:{
 						break;
 					}
