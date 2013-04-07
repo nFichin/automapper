@@ -26,7 +26,6 @@ int main(int argc, char *argv[]){
 
 	MatrizCamino matriz(10,10,renderer);
 	AutoMapper automapper;
-	elementoCamino_t nuevoTipo = UNITARIO_NS;
 	SDL_Event e;
 	bool quit = false;
 	while (!quit){
