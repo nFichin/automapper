@@ -60,7 +60,7 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	elementoCamino_t nuevoTipo;
 
 	//TODO call the rule checkers here
-	std::vector<RuleChecker>::const_iterator iterador = ruleCheckerVector.begin();
+	std::vector<RuleChecker>::iterator iterador = ruleCheckerVector.begin();
 	for( ; iterador != ruleCheckerVector.end() ; iterador++){
 		nuevoTipo = iterador->checkRule(lados);
 	}

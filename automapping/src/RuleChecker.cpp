@@ -9,3 +9,6 @@ RuleChecker::~RuleChecker() {
 	// TODO Auto-generated destructor stub
 }
 
+elementoCamino_t RuleChecker::checkRule(int sides){
+
+}

@@ -1,4 +1,4 @@
-#include "RulerCheckerFor1.h"
+#include "RuleCheckerFor1.h"
 
 RuleCheckerFor1::RuleCheckerFor1() {
 	// TODO Auto-generated constructor stub
