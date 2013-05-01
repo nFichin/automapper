@@ -1,6 +1,11 @@
 #include "AutoMapper.h"
 
 AutoMapper::AutoMapper() {
+	ruleCheckerVector.push_back(RuleCheckerFor0());
+	ruleCheckerVector.push_back(RuleCheckerFor1());
+	ruleCheckerVector.push_back(RuleCheckerFor2());
+	ruleCheckerVector.push_back(RuleCheckerFor3());
+	ruleCheckerVector.push_back(RuleCheckerFor4());
 }
 
 AutoMapper::~AutoMapper() {
@@ -53,20 +58,9 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 
 	int cantAdyacentes = posAdyacentes.size();
 	elementoCamino_t nuevoTipo;
-	switch(cantAdyacentes){
-		case 0:{
-			nuevoTipo = UNITARIO_WE;
-			break;
-		}
-		case 4:{
-			nuevoTipo = CRUZ;
-			break;
-		}
-		default:{
-			nuevoTipo = ElegirTipoSegunAdyacencias(lados,cantAdyacentes);
-			break;
-		}
-	}
+
+	//TODO call the rule checkers here
+
 	elementoCamino.SetTipo(nuevoTipo);
 }
 
@@ -76,45 +70,4 @@ int AutoMapper::PonerValorLadosEnUnaVariable(std::vector<PosicionAdyacente>& pos
 		i |= iterador->ladoAdyacencia;
 	}
 	return i;
-}
-
-elementoCamino_t AutoMapper::ElegirTipoSegunAdyacencias(int ladosAdyacentes,int cantLados){
-	switch(cantLados){
-		case 1:{
-			if( (ladosAdyacentes == IZQUIERDA) || (ladosAdyacentes == DERECHA) ){
-				return UNITARIO_WE;
-			}else{
-				return UNITARIO_NS;
-			}
-			break;
-		}
-		case 2:{
-			if( ladosAdyacentes == (DERECHA | IZQUIERDA) ){
-				return UNITARIO_WE;
-			}else if( ladosAdyacentes ==  (ARRIBA | ABAJO) ){
-				return UNITARIO_NS;
-			}else if( ladosAdyacentes == (ARRIBA | DERECHA) ){
-				return CURVA_NE;
-			}else if( ladosAdyacentes == (ARRIBA | IZQUIERDA) ){
-				return CURVA_NW;
-			}else if( ladosAdyacentes == (ABAJO | DERECHA) ){
-				return CURVA_SE;
-			}else if( ladosAdyacentes == (ABAJO | IZQUIERDA) ){
-				return CURVA_SW;
-			}
-			break;
-		}
-		case 3:{
-			if( (ladosAdyacentes ^ (DERECHA | IZQUIERDA) ) == ARRIBA){
-				return T_N;
-			}else if( (ladosAdyacentes ^ (DERECHA | IZQUIERDA) ) == ABAJO ){
-				return T_S;
-			}else if( (ladosAdyacentes ^ (ARRIBA | ABAJO) ) == DERECHA ){
-				return T_E;
-			}else if( (ladosAdyacentes ^ (ARRIBA | ABAJO) ) ==  IZQUIERDA ){
-				return T_W;
-			}
-			break;
-		}
-	}
 }

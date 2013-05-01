@@ -3,7 +3,10 @@
 
 #include <vector>
 #include "MatrizCamino.h"
+#include "RuleChecker.h"
 class AutoMapper {
+protected:
+	std::vector<RuleChecker> ruleCheckerVector;
 public:
 									AutoMapper();
 	virtual 						~AutoMapper();
