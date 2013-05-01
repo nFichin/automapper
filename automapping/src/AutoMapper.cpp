@@ -54,17 +54,21 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	//Aca se aplican las reglas del automapper
 	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
 
-	int lados = PonerValorLadosEnUnaVariable(posAdyacentes);
+	int lados = applyBitwiseOrOperation(posAdyacentes);
 
 	int cantAdyacentes = posAdyacentes.size();
 	elementoCamino_t nuevoTipo;
 
 	//TODO call the rule checkers here
+	std::vector<RuleChecker>::const_iterator iterador = ruleCheckerVector.begin();
+	for( ; iterador != ruleCheckerVector.end() ; iterador++){
+		nuevoTipo = iterador->checkRule(lados);
+	}
 
 	elementoCamino.SetTipo(nuevoTipo);
 }
 
-int AutoMapper::PonerValorLadosEnUnaVariable(std::vector<PosicionAdyacente>& posAdyacentes){
+int AutoMapper::applyBitwiseOrOperation(std::vector<PosicionAdyacente>& posAdyacentes){
 	int i = 0;
 	for( std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
 		i |= iterador->ladoAdyacencia;

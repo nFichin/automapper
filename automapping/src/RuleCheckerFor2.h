@@ -8,7 +8,7 @@ public:
 	RuleCheckerFor2();
 	virtual ~RuleCheckerFor2();
 
-	elementoCamino_t checkRule(int sides);
+	virtual elementoCamino_t checkRule(int sides);
 };
 
 #endif /* RULECHECKERFOR2_H_ */
