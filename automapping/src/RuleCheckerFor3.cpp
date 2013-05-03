@@ -9,7 +9,7 @@ RuleCheckerFor3::~RuleCheckerFor3() {
 	// TODO Auto-generated destructor stub
 }
 
-elementoCamino_t RuleCheckerFor3::checkRule(int sides){
+elementoCamino_t RuleCheckerFor3::CheckRule(int sides){
 	if( (sides ^ (DERECHA | IZQUIERDA) ) == ARRIBA){
 		return T_N;
 	}else if( (sides ^ (DERECHA | IZQUIERDA) ) == ABAJO ){

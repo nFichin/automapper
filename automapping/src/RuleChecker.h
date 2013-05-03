@@ -5,10 +5,7 @@
 
 class RuleChecker {
 public:
-	RuleChecker();
-	virtual ~RuleChecker();
-
-	virtual elementoCamino_t checkRule(int sides);
+	virtual elementoCamino_t CheckRule(int sides) = 0;
 };
 
 #endif /* RULECHECKER_H_ */

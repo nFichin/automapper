@@ -9,6 +9,6 @@ RuleCheckerFor4::~RuleCheckerFor4() {
 	// TODO Auto-generated destructor stub
 }
 
-elementoCamino_t RuleCheckerFor4::checkRule(int sides){
+elementoCamino_t RuleCheckerFor4::CheckRule(int sides){
 	return CRUZ;
 }

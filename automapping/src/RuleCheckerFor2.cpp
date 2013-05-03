@@ -9,7 +9,7 @@ RuleCheckerFor2::~RuleCheckerFor2() {
 	// TODO Auto-generated destructor stub
 }
 
-elementoCamino_t RuleCheckerFor2::checkRule(int sides){
+elementoCamino_t RuleCheckerFor2::CheckRule(int sides){
 	if( sides == (DERECHA | IZQUIERDA) ){
 		return UNITARIO_WE;
 	}else if( sides ==  (ARRIBA | ABAJO) ){
