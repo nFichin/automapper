@@ -1,8 +1,8 @@
 #ifndef TEXTURA_H_
 #define TEXTURA_H_
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 class CTexture {
     public:
@@ -15,4 +15,4 @@ class CTexture {
 };
 
 
-#endif /* CSURFACE_H_ */
+#endif /* TEXTURA_H_ */
