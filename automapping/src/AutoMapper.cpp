@@ -1,15 +1,16 @@
 #include "AutoMapper.h"
 
 AutoMapper::AutoMapper() {
-	ruleCheckerVector.push_back(RuleCheckerFor0());
-	ruleCheckerVector.push_back(RuleCheckerFor1());
-	ruleCheckerVector.push_back(RuleCheckerFor2());
-	ruleCheckerVector.push_back(RuleCheckerFor3());
-	ruleCheckerVector.push_back(RuleCheckerFor4());
+	ruleCheckerVector.push_back(new RuleCheckerFor0);
+	ruleCheckerVector.push_back(new RuleCheckerFor1);
+	ruleCheckerVector.push_back(new RuleCheckerFor2);
+	ruleCheckerVector.push_back(new RuleCheckerFor3);
+	ruleCheckerVector.push_back(new RuleCheckerFor4);
 }
 
 AutoMapper::~AutoMapper() {
 }
+
 void	AutoMapper::QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion pos){
 	matriz.matriz[pos.fila * matriz.cantColumnas + pos.columna].SetTipo(NULO);
 
@@ -54,21 +55,20 @@ void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std:
 	//Aca se aplican las reglas del automapper
 	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
 
-	int lados = applyBitwiseOrOperation(posAdyacentes);
+	int lados = ApplyBitwiseOrOperation(posAdyacentes);
 
 	int cantAdyacentes = posAdyacentes.size();
-	elementoCamino_t nuevoTipo;
+	elementoCamino_t nuevoTipo = NULO;
 
-	//TODO call the rule checkers here
-	std::vector<RuleChecker>::iterator iterador = ruleCheckerVector.begin();
-	for( ; iterador != ruleCheckerVector.end() ; iterador++){
-		nuevoTipo = iterador->checkRule(lados);
+	std::vector<RuleChecker*>::iterator iterador = ruleCheckerVector.begin();
+	for( ; (iterador != ruleCheckerVector.end()) && (nuevoTipo == NULO) ; iterador++){
+		nuevoTipo = (*iterador)->CheckRule(lados,cantAdyacentes);
 	}
 
 	elementoCamino.SetTipo(nuevoTipo);
 }
 
-int AutoMapper::applyBitwiseOrOperation(std::vector<PosicionAdyacente>& posAdyacentes){
+int AutoMapper::ApplyBitwiseOrOperation(std::vector<PosicionAdyacente>& posAdyacentes){
 	int i = 0;
 	for( std::vector<PosicionAdyacente>::const_iterator iterador = posAdyacentes.begin() ; iterador != posAdyacentes.end() ; iterador++){
 		i |= iterador->ladoAdyacencia;

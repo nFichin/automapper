@@ -12,7 +12,7 @@
 
 class AutoMapper {
 protected:
-	std::vector<RuleChecker> ruleCheckerVector;
+	std::vector<RuleChecker*> ruleCheckerVector;
 public:
 									AutoMapper();
 	virtual 						~AutoMapper();
@@ -21,7 +21,7 @@ public:
 	void							QuitarElementoCaminoEnPosicion(MatrizCamino& matriz,Posicion posicion);
 	std::vector<PosicionAdyacente>	CalcularPosicionesAdyacentesOcupadas(MatrizCamino& matriz,const Posicion& posicion);
 	void							AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::vector<PosicionAdyacente>& posAdyacentes);
-	int								applyBitwiseOrOperation(std::vector<PosicionAdyacente>& posAdyacentes);
+	int								ApplyBitwiseOrOperation(std::vector<PosicionAdyacente>& posAdyacentes);
 	elementoCamino_t				ElegirTipoSegunAdyacencias(int ladosAdyacentes,int cantLados);
 };
 
