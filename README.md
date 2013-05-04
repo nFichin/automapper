@@ -7,6 +7,7 @@ You place road tiles in the game space, and the automapper tool automagically ad
 I'm using Eclipse CDT IDE in my Linux (Debian) box, project configuration files are included.
 
 For Windows I'm using VS2012.
+
 For developing you should have SDL 2.0 and SDL_image libraries installed in your system. Check http://www.libsdl.org/hg.php 
 
 In the "bin" folder you'll find the Windows compiled binary as well as the required run-time libraries. Linux binary is also included. 
