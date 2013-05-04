@@ -5,7 +5,7 @@
 
 class RuleChecker {
 public:
-	virtual elementoCamino_t CheckRule(int sides) = 0;
+	virtual elementoCamino_t CheckRule(int sides, int cantLados) = 0;
 };
 
 #endif /* RULECHECKER_H_ */

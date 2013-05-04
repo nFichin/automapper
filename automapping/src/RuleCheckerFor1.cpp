@@ -9,10 +9,14 @@ RuleCheckerFor1::~RuleCheckerFor1() {
 	// TODO Auto-generated destructor stub
 }
 
-elementoCamino_t RuleCheckerFor1::CheckRule(int sides){
-	if( (sides == IZQUIERDA) || (sides == DERECHA) ){
-		return UNITARIO_WE;
+elementoCamino_t RuleCheckerFor1::CheckRule(int sides,int cantLados){
+	if(cantLados == 1){
+		if( (sides == IZQUIERDA) || (sides == DERECHA) ){
+			return UNITARIO_WE;
+		}else{
+			return UNITARIO_NS;
+		}
 	}else{
-		return UNITARIO_NS;
+		return NULO;
 	}
 }
