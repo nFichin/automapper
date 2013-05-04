@@ -2,7 +2,7 @@
 #include "MatrizCamino.h"
 #include "AutoMapper.h"
 #include <iostream>
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "Texture.h"
 
 #define TILE_SIZE    40
