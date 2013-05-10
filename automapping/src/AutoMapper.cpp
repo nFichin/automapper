@@ -53,7 +53,6 @@ std::vector<PosicionAdyacente> AutoMapper::CalcularPosicionesAdyacentesOcupadas(
 
 void AutoMapper::AdaptarElementoANuevoCamino(ElementoCamino& elementoCamino,std::vector<PosicionAdyacente>& posAdyacentes){
 	//Aca se aplican las reglas del automapper
-	//TODO abstraer las reglas a algo generico, para darle flexibilidad a la herramienta
 
 	int lados = ApplyBitwiseOrOperation(posAdyacentes);
 
