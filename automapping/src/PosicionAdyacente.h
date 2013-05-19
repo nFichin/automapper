@@ -4,10 +4,10 @@
 #include "Posicion.h"
 
 enum ladoAdyacencia_t{
-	DERECHA = 0x0000,
-	IZQUIERDA = 0x00F0,
-	ARRIBA = 0x0F00,
-	ABAJO = 0xF000
+	DERECHA = 0x01,
+	IZQUIERDA = 0x02,
+	ARRIBA = 0x03,
+	ABAJO = 0x04
 };
 
 class PosicionAdyacente: public Posicion {

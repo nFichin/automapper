@@ -1,17 +1,17 @@
 #include "Texture.h"
 
 
-CTexture::CTexture() {
+cTexture::cTexture() {
 }
 
-SDL_Texture* CTexture::OnLoad(SDL_Renderer *renderer,const char* File) {
+SDL_Texture* cTexture::OnLoad(SDL_Renderer *renderer,const char* File) {
 	SDL_Texture *Tex = NULL;
     if((Tex = IMG_LoadTexture(renderer,File)) == NULL) {
         return NULL;
     }
     return Tex;
 }
-bool CTexture::OnDraw(SDL_Renderer *renderer,SDL_Texture* texSrc,const int x,const int y) {
+bool cTexture::OnDraw(SDL_Renderer *renderer,SDL_Texture* texSrc,const int x,const int y) {
     if(texSrc == NULL || renderer == NULL) {
         return false;
     }
@@ -27,7 +27,7 @@ bool CTexture::OnDraw(SDL_Renderer *renderer,SDL_Texture* texSrc,const int x,con
     return true;
 }
 
-bool CTexture::OnDraw(SDL_Renderer* renderer, SDL_Texture* texSrc,const int x,const int y,const int x2,const int y2,const int w,const int H) {
+bool cTexture::OnDraw(SDL_Renderer* renderer, SDL_Texture* texSrc,const int x,const int y,const int x2,const int y2,const int w,const int H) {
     if(texSrc == NULL || renderer == NULL) {
         return false;
     }
